@@ -1,0 +1,32 @@
+/* To represent complex numbers*/
+public class complexNumber{
+private double real;
+private double imaginary;
+public void complexNumber(double real,double imaginary){
+  this.real=real;
+  this.imaginary=imaginary;
+}
+public void complexNumber(double real){
+  this.real=real;
+  this.imaginary=0;
+}
+public void complexNumber(double imaginary){
+  this.imaginary=imaginary;
+  this.real=0;
+}
+public double getreal(){
+  return real;
+}
+public double getimaginary(){
+  return imaginary;
+}
+public void print(){
+  System.out.println(real+"+"+imaginary+"i");
+}
+}
+Class Test_code{
+  public static void main(String[] args){
+    complexNumber x = new complexNumber(4.0,5.5);
+    x.print();
+  }
+}

@@ -1,0 +1,56 @@
+class BasicSensor{
+  private double value;
+
+  public BasicSensor(double value){
+    this.value=value;
+  }
+  public void setvalue(double value){
+    this.value=value;
+  }
+  public void getvalue(){
+    return value;
+  }
+  public void clearvalue(){
+    this.value=0;
+  }
+}
+class MemorySensor extends BasicSensor{
+  private int memoryposition;
+  private double memory[];
+  public MemorySensor(double value,int memoryposition){
+    super(value);
+    this.memoryposition=memoryposition;
+    memory=new double[memoryposition];
+    memory[0]=value;
+  }
+  public double[] getOldValues(){
+    return memory;
+  }
+  public void setvalue(double value){
+    for(int i = memoryposition -1 ; i >= 1;i--){
+           memory[i] = memory[i-1];
+       }
+       memory[0] = value;
+  }
+  void printAllValues(){
+       System.out.print("(");
+       for (int i=0; i < memoryposition-1; i++){
+           System.out.print(memory[i]+ ", ");
+       }
+       System.out.println(memory[memoryposition-1]+ ")");
+   }
+}
+Class TestSensor{
+  public static void main(String[] args){
+        MemorySensor a = new MemorySensor(15.0,5);
+        MemorySensor b = new MemorySensor(10.0,5);
+        a.setvalue(234.0);
+        b.setvalue(235.0);
+        System.out.println("Actual value of sensor a: "+a.getvalue());
+        System.out.println("Actual value of sensor b: "+b.getvalue());
+        System.out.print("Memory of sensor a: ");
+        a.printAllValues();
+        System.out.print("Memory of sensor b: ");
+        b.printAllValues();
+   }
+}
