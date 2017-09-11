@@ -1,6 +1,2 @@
-# testRepo
-
-> cd /path/to/Repo<br>
-> git add . or git add * or git add --all <br>
-> git commit -m "comments"<br>
-> git push origin master<br>
+# Basic HTML Codes  
+This repository consist of basic HTML/CSS/Javascript codes which helps in getting started with Web development.
